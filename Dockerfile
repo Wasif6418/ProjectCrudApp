@@ -3,11 +3,11 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
 # Copy csproj and restore
-COPY ProductCrudApp/*.csproj ./
+COPY *.csproj ./
 RUN dotnet restore
 
 # Copy everything else and publish
-COPY ProductCrudApp/. ./
+COPY . ./
 RUN dotnet publish -c Release -o out
 
 # Stage 2: Runtime
